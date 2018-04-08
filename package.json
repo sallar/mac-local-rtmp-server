@@ -1,0 +1,34 @@
+{
+  "name": "mac-local-stream",
+  "version": "1.0.0",
+  "description": "Local streaming server for macOS",
+  "main": "main.js",
+  "dependencies": {
+    "node-media-server": "^1.2.7"
+  },
+  "devDependencies": {
+    "electron": "^1.8.4"
+  },
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sallar/mac-local-stream.git"
+  },
+  "keywords": [
+    "rtmp",
+    "server",
+    "streaming",
+    "media",
+    "mac",
+    "electron"
+  ],
+  "author": "Sallar Kaboli <sallar.kaboli@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sallar/mac-local-stream/issues"
+  },
+  "homepage": "https://github.com/sallar/mac-local-stream#readme"
+}

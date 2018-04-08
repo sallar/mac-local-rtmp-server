@@ -45,5 +45,28 @@ html {
 .mainFrame .content {
   flex: 1;
   overflow: auto;
-  padding-bottom: 2rem;
+  padding: 1rem 1.5rem 2rem;
+}
+
+.mainFrame .content ul {
+  list-style: none;
+  padding: 0 0 1rem;
+  margin: 0 0 1rem;
+  border-bottom: 1px dotted #DBDBDB;
+}
+
+.mainFrame .content ul:last-child {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+h2 {
+  text-align: center;
+  font-weight: 300;
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  right: 0;
 }

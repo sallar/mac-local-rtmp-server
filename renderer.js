@@ -12,9 +12,6 @@ function fetchStreamInfo() {
   fetch(`${API_URI}/streams`)
     .then(res => res.json())
     .then(res => {
-      if (typeof res !== 'object' || !('live' in res)) {
-        return;
-      }
       streamsContainer.innerHTML = streamsTemplate(
         Object.assign({}, res, {
           tools: {

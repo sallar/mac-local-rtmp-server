@@ -1,32 +1,16 @@
 const NodeMediaServer = require('node-media-server');
 const electron = require('electron');
+const Menubar = require('menubar');
+const path = require('path');
 
 const { app, BrowserWindow } = electron;
 
-const path = require('path');
-const url = require('url');
+const menubar = Menubar({
+  dir: path.resolve(app.getAppPath(), 'view'),
+  height: 200
+});
 
-let mainWindow;
-
-function createWindow() {
-  mainWindow = new BrowserWindow({ width: 800, height: 600 });
-
-  mainWindow.loadURL(
-    url.format({
-      pathname: path.join(__dirname, 'index.html'),
-      protocol: 'file:',
-      slashes: true
-    })
-  );
-
-  mainWindow.on('closed', function() {
-    mainWindow = null;
-  });
-}
-
-app.on('ready', () => {
-  createWindow();
-
+menubar.on('ready', () => {
   const config = {
     rtmp: {
       port: 1935,
@@ -40,20 +24,6 @@ app.on('ready', () => {
       allow_origin: '*'
     }
   };
-
   var nms = new NodeMediaServer(config);
   nms.run();
-});
-
-// Quit when all windows are closed.
-app.on('window-all-closed', function() {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', function() {
-  if (mainWindow === null) {
-    createWindow();
-  }
 });

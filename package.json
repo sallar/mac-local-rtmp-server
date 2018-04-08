@@ -4,6 +4,7 @@
   "description": "Local streaming server for macOS",
   "main": "main.js",
   "dependencies": {
+    "menubar": "^5.2.3",
     "node-media-server": "^1.2.7"
   },
   "devDependencies": {

@@ -15,6 +15,9 @@ html {
   right: 0;
   background-color: #fff;
   border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .mainFrame::before {
@@ -32,9 +35,15 @@ html {
 .mainFrame header {
   background-color: #EDEDED;
   border-bottom: 1px solid #DBDBDB;
-  height: 40px;
+  flex: 0 0 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 8px 8px 0 0;
+}
+
+.mainFrame .content {
+  flex: 1;
+  overflow: auto;
+  padding-bottom: 2rem;
 }

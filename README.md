@@ -1,2 +1,2 @@
 # mac-local-stream
-Local RTMP Streaming Server
+Local streaming server for macOS

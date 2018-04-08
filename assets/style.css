@@ -1,0 +1,40 @@
+@import url(normalize.css);
+
+html {
+  font-size: 14px;
+  line-height: 1.618;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
+}
+
+.mainFrame {
+  position: fixed;
+  top: 10px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+.mainFrame::before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: #EDEDED;
+  top: -20px;
+  left: calc(50% - 10px);
+}
+
+.mainFrame header {
+  background-color: #EDEDED;
+  border-bottom: 1px solid #DBDBDB;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px 8px 0 0;
+}

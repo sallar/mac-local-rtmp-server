@@ -1,6 +1,4 @@
 <% if (typeof live !== 'undefined') { %>
-  <h4>Streams</h4>
-
   <% Object.keys(live).forEach(streamKey => { const stream = live[streamKey]; %>
     <ul>
       <li><strong>Name:</strong> <%= stream.publisher.stream %></li>

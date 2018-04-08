@@ -5,7 +5,9 @@ const filesize = require('filesize');
 
 const API_URI = 'http://localhost:8000/api';
 
-const streamsTemplate = template(fs.readFileSync('./view/streams.ejs', 'utf8'));
+const streamsTemplate = template(
+  fs.readFileSync('./assets/streams.ejs', 'utf8')
+);
 const streamsContainer = document.getElementById('streams');
 
 function fetchStreamInfo() {

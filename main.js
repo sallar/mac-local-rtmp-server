@@ -3,25 +3,22 @@ const electron = require('electron');
 const Menubar = require('menubar');
 const path = require('path');
 
-const { app, BrowserWindow } = electron;
+const { app, BrowserWindow, Tray } = electron;
 
 const currentStreams = new Set();
+const ASSET_PATH = path.join(app.getAppPath(), 'view');
 const menubar = Menubar({
-  dir: path.resolve(app.getAppPath(), 'view'),
+  dir: ASSET_PATH,
   height: 200
 });
 
 function changeMenubarState() {
   if (currentStreams.size > 0) {
     // set recording
-    menubar.tray.setImage(
-      path.resolve(app.getAppPath(), 'view/recordingTemplate.png')
-    );
+    menubar.tray.setImage(path.resolve(ASSET_PATH, 'recording.png'));
   } else {
     // set normal
-    menubar.tray.setImage(
-      path.resolve(app.getAppPath(), 'view/readyTemplate.png')
-    );
+    menubar.tray.setImage(path.resolve(ASSET_PATH, 'readyTemplate.png'));
   }
 }
 

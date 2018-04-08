@@ -1,0 +1,11 @@
+<h4>Streams</h4>
+
+<% Object.keys(live).forEach(streamKey => { const stream = live[streamKey]; %>
+  <ul>
+    <li><strong>Name:</strong> <%= stream.publisher.stream %></li>
+    <li><strong>Traffic:</strong> <%= tools.filesize(stream.publisher.bytes) %></li>
+    <li><strong>Audio:</strong> <%= stream.publisher.audio.codec %> <%= stream.publisher.audio.samplerate %>hz <%= stream.publisher.audio.channels %> channels</li>
+    <li><strong>Video:</strong> <%= stream.publisher.video.codec %> <%= [stream.publisher.video.width, stream.publisher.video.height].join('x') %> <%= stream.publisher.video.fps %>fps</li>
+    <li><strong>Subscribers:</strong> <%= stream.subscribers.length %></li>
+  </ul>
+<% }) %>

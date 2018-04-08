@@ -4,6 +4,8 @@
   "description": "Local streaming server for macOS",
   "main": "main.js",
   "dependencies": {
+    "filesize": "^3.6.1",
+    "lodash": "^4.17.5",
     "menubar": "^5.2.3",
     "node-media-server": "^1.2.7"
   },

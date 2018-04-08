@@ -5,10 +5,25 @@ const path = require('path');
 
 const { app, BrowserWindow } = electron;
 
+const currentStreams = new Set();
 const menubar = Menubar({
   dir: path.resolve(app.getAppPath(), 'view'),
   height: 200
 });
+
+function changeMenubarState() {
+  if (currentStreams.size > 0) {
+    // set recording
+    menubar.tray.setImage(
+      path.resolve(app.getAppPath(), 'view/recordingTemplate.png')
+    );
+  } else {
+    // set normal
+    menubar.tray.setImage(
+      path.resolve(app.getAppPath(), 'view/readyTemplate.png')
+    );
+  }
+}
 
 const nms = new NodeMediaServer({
   rtmp: {
@@ -23,12 +38,25 @@ const nms = new NodeMediaServer({
     allow_origin: '*'
   }
 });
+
+nms.on('prePublish', id => {
+  if (!currentStreams.has(id)) {
+    currentStreams.add(id);
+  }
+  changeMenubarState();
+});
+
+nms.on('donePublish', id => {
+  currentStreams.delete(id);
+  changeMenubarState();
+});
+
 nms.run();
 
 menubar.on('ready', () => {
-  menubar.showWindow();
+  changeMenubarState();
 });
 
-menubar.on('after-create-window', () => {
-  menubar.window.webContents.openDevTools();
-});
+// menubar.on('after-create-window', () => {
+//   menubar.window.webContents.openDevTools();
+// });

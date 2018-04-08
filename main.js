@@ -6,9 +6,10 @@ const path = require('path');
 const { app, BrowserWindow, Tray } = electron;
 
 const currentStreams = new Set();
-const ASSET_PATH = path.join(app.getAppPath(), 'view');
+const ASSET_PATH = path.join(app.getAppPath(), 'assets');
 const menubar = Menubar({
   dir: ASSET_PATH,
+  icon: path.resolve(ASSET_PATH, 'readyTemplate.png'),
   height: 200
 });
 

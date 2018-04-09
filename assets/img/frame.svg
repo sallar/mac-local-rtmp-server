@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="400px" viewBox="0 0 800 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.3 (51167) - http://www.bohemiancoding.com/sketch -->
+    <title>Group 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="57.5120351%" y1="14.781478%" x2="92.5934485%" y2="96.8267673%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#F7F7F7" offset="100%"></stop>
+        </linearGradient>
+        <path d="M388.829265,10.7828297 L398.155791,1.42201491 C398.935405,0.639534528 400.201733,0.63721099 400.984213,1.41682514 C400.985946,1.41855189 400.987676,1.42028182 400.989403,1.42201491 L410.315929,10.7828297 C414.068744,14.5494421 419.166942,16.6666667 424.483989,16.6666667 L780.46398,16.6666667 C791.253426,16.6666667 800,25.4453971 800,36.2745098 L800,380.392157 C800,391.22127 791.253426,400 780.46398,400 L19.5360195,400 C8.74657387,400 1.30136032e-15,391.22127 0,380.392157 L0,36.2745098 C-1.7351471e-15,25.4453971 8.74657387,16.6666667 19.5360195,16.6666667 L374.661204,16.6666667 C379.978251,16.6666667 385.076449,14.5494421 388.829265,10.7828297 Z" id="path-2"></path>
+        <linearGradient x1="40.7623774%" y1="-24.0547366%" x2="202.392538%" y2="276.275354%" id="linearGradient-4">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#979797" offset="100%"></stop>
+        </linearGradient>
+        <filter x="-5.2%" y="-5.2%" width="110.4%" height="110.3%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="3.60491071" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-2.8%" y="-2.8%" width="105.6%" height="105.6%" filterUnits="objectBoundingBox" id="filter-6">
+            <feGaussianBlur stdDeviation="3.60491071" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-2.4%" y="-2.4%" width="104.9%" height="104.8%" filterUnits="objectBoundingBox" id="filter-7">
+            <feGaussianBlur stdDeviation="3.60491071" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <filter x="-1.3%" y="-1.3%" width="102.5%" height="102.5%" filterUnits="objectBoundingBox" id="filter-8">
+            <feGaussianBlur stdDeviation="3.60491071" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+        <ellipse id="path-9" cx="733.577534" cy="734.313725" rx="98.6568987" ry="99.0196078"></ellipse>
+        <filter x="-45.6%" y="-31.8%" width="191.2%" height="190.9%" filterUnits="objectBoundingBox" id="filter-10">
+            <feOffset dx="0" dy="27" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="25.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.241989357 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5">
+            <g id="Group-2">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="Combined-Shape" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                <g mask="url(#mask-3)" id="Group-8">
+                    <g transform="translate(-252.991453, -564.705882)">
+                        <g transform="translate(918.192918, 921.568627) rotate(-73.000000) translate(-918.192918, -921.568627) translate(183.638584, 184.313725)">
+                            <g id="Group-3" transform="translate(399.511600, 400.980392)" opacity="0.495980525" stroke="url(#linearGradient-4)">
+                                <ellipse id="Oval-2" stroke-width="11" cx="333.577534" cy="334.803922" rx="176.312576" ry="176.960784"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="7" filter="url(#filter-5)" cx="333.577534" cy="334.803922" rx="138.217338" ry="138.72549"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="11" cx="335.042735" cy="336.27451" rx="256.898657" ry="257.843137"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="4" filter="url(#filter-6)" cx="335.531136" cy="336.764706" rx="230.03663" ry="230.882353"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="11" filter="url(#filter-7)" cx="335.531136" cy="336.764706" rx="335.531136" ry="336.764706"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="5" cx="336.019536" cy="337.254902" rx="309.64591" ry="310.784314"></ellipse>
+                            </g>
+                            <g id="Group-3" opacity="0.5" stroke="url(#linearGradient-4)">
+                                <ellipse id="Oval-2" stroke-width="11" opacity="0.495980525" cx="730.647131" cy="733.333333" rx="385.836386" ry="387.254902"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="11" opacity="0.495980525" cx="734.065934" cy="736.764706" rx="562.148962" ry="564.215686"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="4" opacity="0.495980525" filter="url(#filter-8)" cx="734.554335" cy="737.254902" rx="504.029304" ry="505.882353"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="11" opacity="0.495980525" cx="734.554335" cy="737.254902" rx="734.554335" ry="737.254902"></ellipse>
+                                <ellipse id="Oval-2" stroke-width="5" opacity="0.495980525" cx="735.042735" cy="737.745098" rx="677.411477" ry="679.901961"></ellipse>
+                            </g>
+                            <g id="Oval">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-10)" xlink:href="#path-9"></use>
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-9"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

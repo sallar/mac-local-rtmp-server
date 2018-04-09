@@ -9,7 +9,7 @@ const currentStreams = new Set();
 const ASSET_PATH = path.join(app.getAppPath(), 'assets');
 const menubar = Menubar({
   dir: ASSET_PATH,
-  icon: path.resolve(ASSET_PATH, 'readyTemplate.png'),
+  icon: path.resolve(ASSET_PATH, 'img/readyTemplate.png'),
   height: 200,
   transparent: true
 });
@@ -17,10 +17,10 @@ const menubar = Menubar({
 function changeMenubarState() {
   if (currentStreams.size > 0) {
     // set recording
-    menubar.tray.setImage(path.resolve(ASSET_PATH, 'recording.png'));
+    menubar.tray.setImage(path.resolve(ASSET_PATH, 'img/recording.png'));
   } else {
     // set normal
-    menubar.tray.setImage(path.resolve(ASSET_PATH, 'readyTemplate.png'));
+    menubar.tray.setImage(path.resolve(ASSET_PATH, 'img/readyTemplate.png'));
   }
 }
 

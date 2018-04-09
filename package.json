@@ -7,7 +7,8 @@
     "filesize": "^3.6.1",
     "lodash": "^4.17.5",
     "menubar": "^5.2.3",
-    "node-media-server": "^1.2.7"
+    "node-media-server": "^1.2.7",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "electron": "^1.8.4"

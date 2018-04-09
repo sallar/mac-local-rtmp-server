@@ -1,13 +1,23 @@
 <% if (typeof live !== 'undefined') { %>
-  <% Object.keys(live).forEach(streamKey => { const stream = live[streamKey]; %>
-    <ul>
-      <li><strong>Name:</strong> <%= stream.publisher.stream %></li>
-      <li><strong>Traffic:</strong> <%= tools.filesize(stream.publisher.bytes) %></li>
-      <li><strong>Audio:</strong> <%= stream.publisher.audio.codec %> <%= stream.publisher.audio.samplerate %>hz <%= stream.publisher.audio.channels %> channels</li>
-      <li><strong>Video:</strong> <%= stream.publisher.video.codec %> <%= [stream.publisher.video.width, stream.publisher.video.height].join('x') %> <%= stream.publisher.video.fps %>fps</li>
-      <li><strong>Subscribers:</strong> <%= stream.subscribers.length %></li>
-    </ul>
-  <% }) %>
+  <div class="content">
+    <h4>
+      <img src="./img/streams.svg" width="103">
+    </h4>
+    <div class="list">
+      <% Object.keys(live).forEach(streamKey => { const stream = live[streamKey]; %>
+        <ul>
+          <li><strong>Name:</strong> <code><%= stream.publisher.stream %></code> (<%= stream.subscribers.length %> clients connected)</li>
+          <li><strong>Traffic:</strong> <%= tools.filesize(stream.publisher.bytes) %></li>
+          <li><strong>Audio:</strong> <%= stream.publisher.audio.codec %> <%= stream.publisher.audio.samplerate / 1000 %>khz, <%= stream.publisher.audio.channels %> channels</li>
+          <li><strong>Video:</strong> <%= stream.publisher.video.codec %> <%= [stream.publisher.video.width, stream.publisher.video.height].join('x') %> <%= stream.publisher.video.fps %>fps</li>
+          <li><code>rtmp://127.0.0.1/live/<%= streamKey %></code></li>
+        </ul>
+      <% }) %>
+    </div>
+  </div>
 <% } else { %>
-  <h2>No Live Streams Currently.</h2>
+  <div class="empty-state">
+    <h2>No Live Streams Currently.</h2>
+    <code><%= rtmpUri %></code>
+  </div>
 <% } %>

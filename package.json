@@ -1,8 +1,15 @@
 {
-  "name": "mac-local-stream",
+  "name": "mac-local-rtmp-server",
+  "productName": "Local RTMP Server",
   "version": "1.0.0",
   "description": "Local streaming server for macOS",
   "main": "main.js",
+  "build": {
+    "appId": "me.sallar.localRtmpServer",
+    "mac": {
+      "category": "public.app-category.video"
+    }
+  },
   "dependencies": {
     "filesize": "^3.6.1",
     "lodash": "^4.17.5",
@@ -11,15 +18,17 @@
     "shortid": "^2.2.8"
   },
   "devDependencies": {
-    "electron": "^1.8.4"
+    "electron": "^1.8.4",
+    "electron-builder": "^20.8.1"
   },
   "scripts": {
     "start": "electron .",
+    "dist": "electron-builder",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sallar/mac-local-stream.git"
+    "url": "git+https://github.com/sallar/mac-local-rtmp-server.git"
   },
   "keywords": [
     "rtmp",
@@ -32,7 +41,7 @@
   "author": "Sallar Kaboli <sallar.kaboli@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sallar/mac-local-stream/issues"
+    "url": "https://github.com/sallar/mac-local-rtmp-server/issues"
   },
-  "homepage": "https://github.com/sallar/mac-local-stream#readme"
+  "homepage": "https://github.com/sallar/mac-local-rtmp-server#readme"
 }

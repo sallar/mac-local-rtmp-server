@@ -2,6 +2,8 @@
 
 This is a simple RTMP server for macOS. You can stream videos using the provided RTMP uri, and also use the live feed in other applications.
 
+![](https://user-images.githubusercontent.com/768052/38514896-22aa01e4-3c3b-11e8-985c-b12f6aa63eaa.png)
+
 ## Usage
 
 1. Download the latest version from the [releases page](https://github.com/sallar/mac-local-rtmp-server/releases).
@@ -12,3 +14,4 @@ This is a simple RTMP server for macOS. You can stream videos using the provided
 
 This software is released under the [MIT License](LICENSE)
 
+Thanks to [Arash](https://twitter.com/_arashasghari) for the design.

@@ -33,3 +33,7 @@ function fetchStreamInfo() {
 
 fetchStreamInfo();
 setInterval(fetchStreamInfo, 5000);
+
+document.querySelector('.quit').addEventListener('click', () => {
+  remote.app.quit();
+});

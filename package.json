@@ -23,7 +23,7 @@
   },
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder",
+    "dist": "electron-builder -p always",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -77,10 +77,11 @@ code {
 }
 
 .quit {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   position: fixed;
-  top: 15px;
-  right: 10px;
+  top: 25px;
+  right: 15px;
   cursor: pointer;
+  opacity: .7;
 }

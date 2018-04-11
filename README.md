@@ -10,6 +10,8 @@ This is a simple RTMP server for macOS. You can stream videos using the provided
 2. The app sits in your menubar, copy the provided `rtmp://` uri and paste it in your streaming software.
 3. As soon as you start streaming, the app's window shows the state of the stream and it's live feed uri.
 
+[Video guide for connecting Elgato Game Capture HD60 S to OBS](https://www.youtube.com/watch?v=n94jGIXWWZQ&feature=youtu.be)
+
 ## License
 
 This software is released under the [MIT License](LICENSE)

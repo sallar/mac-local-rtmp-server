@@ -3,7 +3,9 @@ const electron = require('electron');
 const Menubar = require('menubar');
 const path = require('path');
 
-const { app, BrowserWindow, Tray } = electron;
+require('electron-context-menu')();
+
+const { app, BrowserWindow, Tray, Menu } = electron;
 
 const currentStreams = new Set();
 const ASSET_PATH = path.join(app.getAppPath(), 'assets');
@@ -55,7 +57,3 @@ nms.run();
 menubar.on('ready', () => {
   changeMenubarState();
 });
-
-// menubar.on('after-create-window', () => {
-//   menubar.window.webContents.openDevTools();
-// });

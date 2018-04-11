@@ -5,6 +5,7 @@ html {
   line-height: 1.618;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizelegibility;
+  -webkit-user-select: none;
 }
 
 .mainFrame {
@@ -74,6 +75,7 @@ code {
   padding: 2px 5px;
   border-radius: 4px;
   background-color: rgba(255, 255, 255, .8);
+  -webkit-user-select: text !important;
 }
 
 .quit {

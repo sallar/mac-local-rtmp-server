@@ -2,7 +2,7 @@
 
 This is a simple RTMP server for macOS. You can stream videos using the provided RTMP uri, and also use the live feed in other applications.
 
-![](https://user-images.githubusercontent.com/768052/38514896-22aa01e4-3c3b-11e8-985c-b12f6aa63eaa.png)
+![](https://user-images.githubusercontent.com/768052/38555984-c2961dba-3cd0-11e8-8f4e-49270e2278ce.png)
 
 ## Usage
 

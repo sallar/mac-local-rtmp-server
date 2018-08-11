@@ -1,7 +1,7 @@
 {
   "name": "mac-local-rtmp-server",
   "productName": "Local RTMP Server",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Local streaming server for macOS",
   "main": "main.js",
   "build": {

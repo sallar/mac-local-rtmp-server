@@ -5,7 +5,6 @@ const path = require('path');
 const filesize = require('filesize');
 const shortid = require('shortid');
 
-const API_URI = 'http://localhost:8000/api';
 const rtmpUri = `rtmp://127.0.0.1/live/${shortid.generate()}`;
 
 const streamsTemplate = template(
@@ -16,8 +15,8 @@ const streamsTemplate = template(
 );
 const streamsContainer = document.getElementById('streams');
 
-function fetchStreamInfo() {
-  fetch(`${API_URI}/streams`)
+function fetchStreamInfo(port = 8000) {
+  fetch(`http://localhost:${port}/api/streams`)
     .then(res => res.json())
     .then(res => {
       streamsContainer.innerHTML = streamsTemplate(
@@ -31,9 +30,13 @@ function fetchStreamInfo() {
     });
 }
 
-fetchStreamInfo();
-setInterval(fetchStreamInfo, 5000);
-
 document.querySelector('.quit').addEventListener('click', () => {
   remote.app.quit();
 });
+
+ipcRenderer.on('port-ready', (e, port) => {
+  fetchStreamInfo(port);
+  setInterval(() => fetchStreamInfo(port), 5000);
+});
+
+ipcRenderer.send('app-ready');

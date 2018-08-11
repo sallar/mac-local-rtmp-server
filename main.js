@@ -1,20 +1,15 @@
 const NodeMediaServer = require('node-media-server');
+const getPort = require('get-port');
 const electron = require('electron');
 const Menubar = require('menubar');
 const path = require('path');
 
 require('electron-context-menu')();
 
-const { app, BrowserWindow, Tray, Menu } = electron;
+const { app, BrowserWindow, Tray, Menu, ipcMain } = electron;
 
 const currentStreams = new Set();
 const ASSET_PATH = path.join(app.getAppPath(), 'assets');
-const menubar = Menubar({
-  dir: ASSET_PATH,
-  icon: path.resolve(ASSET_PATH, 'img/readyTemplate.png'),
-  height: 200,
-  transparent: true
-});
 
 function changeMenubarState() {
   if (currentStreams.size > 0) {
@@ -26,34 +21,49 @@ function changeMenubarState() {
   }
 }
 
-const nms = new NodeMediaServer({
-  rtmp: {
-    port: 1935,
-    chunk_size: 60000,
-    gop_cache: true,
-    ping: 60,
-    ping_timeout: 30
-  },
-  http: {
-    port: 8000,
-    allow_origin: '*'
-  }
+const menubar = Menubar({
+  dir: ASSET_PATH,
+  icon: path.resolve(ASSET_PATH, 'img/readyTemplate.png'),
+  height: 200,
+  transparent: true
 });
 
-nms.on('prePublish', id => {
-  if (!currentStreams.has(id)) {
-    currentStreams.add(id);
-  }
-  changeMenubarState();
-});
+(async () => {
+  const port = await getPort();
 
-nms.on('donePublish', id => {
-  currentStreams.delete(id);
-  changeMenubarState();
-});
+  const nms = new NodeMediaServer({
+    rtmp: {
+      port: 1935,
+      chunk_size: 60000,
+      gop_cache: true,
+      ping: 60,
+      ping_timeout: 30
+    },
+    http: {
+      port,
+      allow_origin: '*'
+    }
+  });
 
-nms.run();
+  nms.on('prePublish', id => {
+    if (!currentStreams.has(id)) {
+      currentStreams.add(id);
+    }
+    changeMenubarState();
+  });
 
-menubar.on('ready', () => {
-  changeMenubarState();
-});
+  nms.on('donePublish', id => {
+    currentStreams.delete(id);
+    changeMenubarState();
+  });
+
+  nms.run();
+
+  menubar.on('ready', () => {
+    changeMenubarState();
+  });
+
+  ipcMain.on('app-ready', event => {
+    event.sender.send('port-ready', port);
+  });
+})();

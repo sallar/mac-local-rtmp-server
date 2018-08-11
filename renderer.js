@@ -1,13 +1,11 @@
-const { ipcRenderer, remote } = require('electron');
+const { ipcRenderer, remote, clipboard } = require('electron');
 const template = require('lodash/template');
 const fs = require('fs');
 const path = require('path');
 const filesize = require('filesize');
 const shortid = require('shortid');
 
-const API_URI = 'http://localhost:8000/api';
-const rtmpUri = `rtmp://127.0.0.1/live/${shortid.generate()}`;
-
+const randomStreamKey = shortid.generate();
 const streamsTemplate = template(
   fs.readFileSync(
     path.join(remote.app.getAppPath(), 'assets/streams.ejs'),
@@ -16,24 +14,37 @@ const streamsTemplate = template(
 );
 const streamsContainer = document.getElementById('streams');
 
-function fetchStreamInfo() {
-  fetch(`${API_URI}/streams`)
+function fetchStreamInfo(port = 8000) {
+  fetch(`http://localhost:${port}/api/streams`)
     .then(res => res.json())
     .then(res => {
       streamsContainer.innerHTML = streamsTemplate(
         Object.assign({}, res, {
-          rtmpUri,
+          rtmpUri: 'rtmp://127.0.0.1/live',
+          randomStreamKey,
           tools: {
             filesize
           }
         })
       );
+
+      [...streamsContainer.querySelectorAll('.copy')].forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          const text = el.parentElement.querySelector('code').innerText;
+          clipboard.writeText(text);
+        });
+      });
     });
 }
-
-fetchStreamInfo();
-setInterval(fetchStreamInfo, 5000);
 
 document.querySelector('.quit').addEventListener('click', () => {
   remote.app.quit();
 });
+
+ipcRenderer.on('port-ready', (e, port) => {
+  fetchStreamInfo(port);
+  setInterval(() => fetchStreamInfo(port), 5000);
+});
+
+ipcRenderer.send('app-ready');

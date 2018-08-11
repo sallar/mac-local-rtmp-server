@@ -52,10 +52,6 @@ html {
   border: none;
 }
 
-.content code {
-  font-size: .9rem;
-}
-
 .empty-state {
   flex: 1;
   display: flex;
@@ -66,16 +62,7 @@ html {
 
 .empty-state h2 {
   font-weight: 300;
-  margin: 0 0 10px;
-}
-
-code {
-  border: 1px dotted #dbdbdb;
-  display: inline-block;
-  padding: 2px 5px;
-  border-radius: 4px;
-  background-color: rgba(255, 255, 255, .8);
-  -webkit-user-select: text !important;
+  margin: 0 0 20px;
 }
 
 .quit {
@@ -86,4 +73,54 @@ code {
   right: 15px;
   cursor: pointer;
   opacity: .7;
+}
+
+.copyable {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px dotted #dbdbdb;
+  padding: 2px 5px;
+  border-radius: 0 4px 4px 4px;
+  background-color: rgba(255, 255, 255, .8);
+  position: relative;
+}
+
+.copyable:before {
+  content: attr(data-title);
+  position: absolute;
+  bottom: 100%;
+  left: -1px;
+  background-color: #A5A5A5;
+  color: #fff;
+  font-size: 10px;
+  line-height: 14px;
+  height: 14px;
+  border-radius: 4px 4px 0 0;
+  padding: 0 5px;
+  text-transform: uppercase;
+}
+
+.copyable.no-title:before {
+  display: none;
+}
+
+.copyable code {
+  display: inline-block;
+  margin-right: 5px;
+  padding-right: 5px;
+  border-right: 1px solid #ccc;
+  font-size: .9rem;
+}
+
+.copyable a {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.copyable a img {
+  width: 100%;
+  height: auto;
 }

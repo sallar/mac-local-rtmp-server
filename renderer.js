@@ -1,12 +1,11 @@
-const { ipcRenderer, remote } = require('electron');
+const { ipcRenderer, remote, clipboard } = require('electron');
 const template = require('lodash/template');
 const fs = require('fs');
 const path = require('path');
 const filesize = require('filesize');
 const shortid = require('shortid');
 
-const rtmpUri = `rtmp://127.0.0.1/live/${shortid.generate()}`;
-
+const randomStreamKey = shortid.generate();
 const streamsTemplate = template(
   fs.readFileSync(
     path.join(remote.app.getAppPath(), 'assets/streams.ejs'),
@@ -21,12 +20,21 @@ function fetchStreamInfo(port = 8000) {
     .then(res => {
       streamsContainer.innerHTML = streamsTemplate(
         Object.assign({}, res, {
-          rtmpUri,
+          rtmpUri: 'rtmp://127.0.0.1/live',
+          randomStreamKey,
           tools: {
             filesize
           }
         })
       );
+
+      [...streamsContainer.querySelectorAll('.copy')].forEach(el => {
+        el.addEventListener('click', e => {
+          e.preventDefault();
+          const text = el.parentElement.querySelector('code').innerText;
+          clipboard.writeText(text);
+        });
+      });
     });
 }
 

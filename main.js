@@ -25,7 +25,8 @@ const menubar = Menubar({
   dir: ASSET_PATH,
   icon: path.resolve(ASSET_PATH, 'img/readyTemplate.png'),
   height: 200,
-  transparent: true
+  transparent: true,
+  preloadWindow: true
 });
 
 (async () => {

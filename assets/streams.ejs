@@ -1,7 +1,7 @@
 <% if (typeof live !== 'undefined') { %>
   <div class="content">
     <h4>
-      <img src="./img/streams.svg" width="103">
+      <img src="./img/streams.svg" width="103" />
     </h4>
     <div class="list">
       <% Object.keys(live).forEach(streamKey => { const stream = live[streamKey]; %>
@@ -10,7 +10,14 @@
           <li><strong>Traffic:</strong> <%= tools.filesize(stream.publisher.bytes) %></li>
           <li><strong>Audio:</strong> <%= stream.publisher.audio.codec %> <%= stream.publisher.audio.samplerate / 1000 %>khz, <%= stream.publisher.audio.channels %> channels</li>
           <li><strong>Video:</strong> <%= stream.publisher.video.codec %> <%= [stream.publisher.video.width, stream.publisher.video.height].join('x') %> <%= stream.publisher.video.fps %>fps</li>
-          <li><code>rtmp://127.0.0.1/live/<%= streamKey %></code></li>
+          <li><strong>URL:</strong>
+            <div class="copyable no-title">
+              <code>rtmp://127.0.0.1/live/<%= streamKey %></code>
+              <a href="#" class="copy" title="Copy">
+                <img src="./img/copy.svg" />
+              </a>
+            </div>
+          </li>
         </ul>
       <% }) %>
     </div>
@@ -18,6 +25,19 @@
 <% } else { %>
   <div class="empty-state">
     <h2>No Live Streams Currently.</h2>
-    <code><%= rtmpUri %></code>
+    <section>
+      <div class="copyable" data-title="RTMP URL">
+        <code><%= rtmpUri %></code>
+        <a href="#" class="copy" title="Copy">
+          <img src="./img/copy.svg" />
+        </a>
+      </div>
+      <div class="copyable" data-title="Stream Key">
+        <code><%= randomStreamKey %></code>
+        <a href="#" class="copy" title="Copy">
+          <img src="./img/copy.svg" />
+        </a>
+      </div>
+    </section>
   </div>
 <% } %>

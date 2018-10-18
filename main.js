@@ -80,7 +80,7 @@ const menubar = Menubar({
     event.sender.send('port-ready', port);
   });
 
-  ipcMain.on('error', function(e){	
+  ipcMain.on('error', event =>
     console.log(e)
   });
 })();

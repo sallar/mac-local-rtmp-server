@@ -81,6 +81,6 @@ const menubar = Menubar({
   });
 
   ipcMain.on('error', event =>
-    console.log(e)
+    console.error(event)
   });
 })();

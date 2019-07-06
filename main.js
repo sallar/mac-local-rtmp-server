@@ -1,8 +1,8 @@
 const NodeMediaServer = require('node-media-server');
 const getPort = require('get-port');
 const electron = require('electron');
-const Menubar = require('menubar');
 const path = require('path');
+const { menubar: Menubar } = require('menubar');
 
 require('electron-context-menu')();
 
@@ -26,7 +26,13 @@ const menubar = Menubar({
   icon: path.resolve(ASSET_PATH, 'img/readyTemplate.png'),
   height: 200,
   transparent: true,
-  preloadWindow: true
+  preloadWindow: true,
+  browserWindow: {
+    height: 200,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  }
 });
 
 (async () => {
@@ -80,7 +86,7 @@ const menubar = Menubar({
     event.sender.send('port-ready', port);
   });
 
-  ipcMain.on('error', event =>
-    console.error(event)
+  ipcMain.on('error', event => {
+    console.error(event);
   });
 })();

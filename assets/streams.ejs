@@ -8,7 +8,7 @@
         <ul>
           <li><strong>Name:</strong> <code><%= stream.publisher.stream %></code> (<%= stream.subscribers.length %> clients connected)</li>
           <li><strong>Traffic:</strong> <%= tools.filesize(stream.publisher.bytes) %></li>
-          <li><strong>Audio:</strong> <%= stream.publisher.audio.codec %> <%= stream.publisher.audio.samplerate / 1000 %>khz, <%= stream.publisher.audio.channels %> channels</li>
+          <li><strong>Audio:</strong> <% if (stream.publisher.audio) { %><%= stream.publisher.audio.codec %> <%= stream.publisher.audio.samplerate / 1000 %>khz, <%= stream.publisher.audio.channels %> channels<% } else { %>None<% } %></li>
           <li><strong>Video:</strong> <%= stream.publisher.video.codec %> <%= [stream.publisher.video.width, stream.publisher.video.height].join('x') %> <%= stream.publisher.video.fps %>fps</li>
           <li><strong>URL:</strong>
             <div class="copyable no-title">

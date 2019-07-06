@@ -18,6 +18,15 @@ function fetchStreamInfo(port = 8000) {
   fetch(`http://localhost:${port}/api/streams`)
     .then(res => res.json())
     .then(res => {
+      console.log(
+        Object.assign({}, res, {
+          rtmpUri: 'rtmp://127.0.0.1/live',
+          randomStreamKey,
+          tools: {
+            filesize
+          }
+        })
+      );
       streamsContainer.innerHTML = streamsTemplate(
         Object.assign({}, res, {
           rtmpUri: 'rtmp://127.0.0.1/live',

@@ -1,4 +1,4 @@
-const NodeMediaServer = require('node-media-server');
+const {NodeMediaServer} = require('node-media-server');
 const getPort = require('get-port');
 const electron = require('electron');
 const path = require('path');
@@ -30,7 +30,9 @@ const menubar = Menubar({
   browserWindow: {
     height: 200,
     webPreferences: {
-      nodeIntegration: true
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
     }
   }
 });

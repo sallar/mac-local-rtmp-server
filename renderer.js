@@ -5,7 +5,7 @@ const path = require('path');
 const filesize = require('filesize');
 const shortid = require('shortid');
 
-const randomStreamKey = shortid.generate();
+const randomStreamKey = "HelloWorld!"//shortid.generate();
 const streamsTemplate = template(
   fs.readFileSync(
     path.join(remote.app.getAppPath(), 'assets/streams.ejs'),

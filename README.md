@@ -1,6 +1,11 @@
 # Local RTMP Server for macOS
 
-:warning: **Note:** Elgato has released a program called "OBS Link" which does the same thing (in a different way). You might want to [check that out](https://help.elgato.com/hc/en-us/articles/360031363132-OBS-Link-Setup). However I have noticed the same time lag in that method too.
+> [!NOTE]
+> Elgato has released a program called "OBS Link" which does the same thing (in a different way). You might want to [check that out](https://help.elgato.com/hc/en-us/articles/360031363132-OBS-Link-Setup). However I have noticed the same time lag in that method too.
+
+> [!WARNING]
+> This project is archived and no longer maintaned.
+
 
 This is a simple RTMP server for macOS. You can stream videos using the provided RTMP URI and also use the live feed in other applications.
 
